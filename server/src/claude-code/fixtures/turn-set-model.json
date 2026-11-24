@@ -1,0 +1,438 @@
+{
+  "description": "A turn after setModel: a local-command user message precedes init, which reports the new model.",
+  "recordedWith": "Claude Code 2.1.302, Agent SDK 0.3.302, model haiku, streaming input, includePartialMessages, settingSources []",
+  "hookInputs": [],
+  "awaitInterruptAt": null,
+  "messages": [
+    {
+      "type": "user",
+      "message": {
+        "role": "user",
+        "content": "<local-command-stdout>Set model to `claude-haiku-4-5-20251001`</local-command-stdout>"
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "a48a9334-f017-42b4-8091-3324e09b07bb"
+    },
+    {
+      "type": "system",
+      "subtype": "init",
+      "apiKeySource": "none",
+      "claude_code_version": "2.1.302",
+      "cwd": "/home/example/project",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "model": "claude-haiku-4-5-20251001",
+      "permissionMode": "bypassPermissions",
+      "output_style": "default",
+      "capabilities": [
+        "interrupt_receipt_v1",
+        "interrupt_cancel_queued_v1",
+        "interrupt_send_now_v1",
+        "msg_lifecycle_v1",
+        "request_marker_lists_v1",
+        "sdk_mcp_tools_list_changed",
+        "sdk_mcp_manifests",
+        "mcp_read_resource_v1",
+        "mcp_tool_ui_meta_v1",
+        "ui_surface_v1",
+        "mcp_call_result_not_for_model_v1"
+      ]
+    },
+    {
+      "type": "system",
+      "subtype": "status",
+      "status": "requesting",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "85360b08-76b5-40c0-8131-8044d78c0e6d"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_start",
+        "message": {
+          "model": "claude-haiku-4-5-20251001",
+          "id": "msg_011Cg8K3X14MUaDVrV4TF9xz",
+          "type": "message",
+          "role": "assistant",
+          "content": [],
+          "stop_reason": null,
+          "usage": {
+            "input_tokens": 10,
+            "cache_creation_input_tokens": 16400,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 6
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "cf13ed8f-9cd7-4885-b8ad-bb347191216d"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 0,
+        "content_block": {
+          "type": "thinking",
+          "thinking": "",
+          "signature": ""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "95bc48bb-d846-45f2-bdda-4cf91061ab9b"
+    },
+    {
+      "type": "system",
+      "subtype": "thinking_tokens",
+      "estimated_tokens": 6,
+      "estimated_tokens_delta": 6,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "ee4e1d7c-1888-4cf6-9ff2-fbdb9cc2128d"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": "The user is asking me to",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1281745d-6b94-4639-b891-1bcbf4f021de"
+    },
+    {
+      "type": "system",
+      "subtype": "thinking_tokens",
+      "estimated_tokens": 8,
+      "estimated_tokens_delta": 2,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "53e1c803-5774-44d1-8fc8-fe3bf5ac80b8"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": " reply",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "299498d8-978d-468a-bbcc-3823c833881d"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": " with exactly one word: \"",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1bca3d04-0beb-480e-a4e9-65c10ccf5d7b"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": "pong\"",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f268d315-f775-4008-9c8c-843a43106571"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": "\n\nThis",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "b12d128b-2361-4f8c-99dc-ff92d76e74bf"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": " is straight",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "4e12120a-0e37-433b-be91-70282cd4e113"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": "forward - I should",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "52afca73-3898-419b-95ee-8471275b73fd"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": " just respond with that",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "21ec70d5-3978-487b-a2c2-c34524114bae"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "thinking_delta",
+          "thinking": " single word.",
+          "estimated_tokens": null
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "ef48e184-0642-4d15-a815-3f4028cd1429"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "signature_delta",
+          "signature": "redacted-signature"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "76a2e033-80ec-49dd-9785-d322f8362bce"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-4-5-20251001",
+        "id": "msg_011Cg8K3X14MUaDVrV4TF9xz",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "The user is asking me to reply with exactly one word: \"pong\"\n\nThis is straightforward - I should just respond with that single word.",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 10,
+          "cache_creation_input_tokens": 16400,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 6
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "afc7b2a3-65a7-49e4-8b2a-8033b95841e1"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 0
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "9b13ea11-2ec9-42ac-831e-5c22f49b40b1"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 1,
+        "content_block": {
+          "type": "text",
+          "text": ""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "7cf9190c-9a39-4ad3-b637-eb9d4e3c188a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 1,
+        "delta": {
+          "type": "text_delta",
+          "text": "p"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "8c6147aa-b3b8-4e79-a10f-c0aef1376966"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 1,
+        "delta": {
+          "type": "text_delta",
+          "text": "ong"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1b06cbd4-96c8-4b36-b86a-f431390d5d54"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-4-5-20251001",
+        "id": "msg_011Cg8K3X14MUaDVrV4TF9xz",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "pong"
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 10,
+          "cache_creation_input_tokens": 16400,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 6
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "6ab0d8e9-0ea7-42c4-828c-a475f594832a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 1
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f020046e-610b-482d-a1fa-b5a8166af5b9"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_delta",
+        "delta": {
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "stop_details": null,
+          "container": null
+        },
+        "usage": {
+          "input_tokens": 10,
+          "cache_creation_input_tokens": 16400,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 44
+        },
+        "context_management": {
+          "applied_edits": []
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "71fca50b-8aa3-4220-b7bf-a7845efefaca"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_stop"
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1007f777-1a82-44dd-8232-1bf4904adc82"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "stop_reason": "end_turn",
+      "num_turns": 1,
+      "result": "pong",
+      "duration_ms": 1402,
+      "total_cost_usd": 0.03599411,
+      "usage": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 16400,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 44
+      },
+      "modelUsage": {
+        "claude-haiku-5-5": {
+          "inputTokens": 1211,
+          "outputTokens": 517,
+          "cacheReadInputTokens": 114151,
+          "cacheCreationInputTokens": 7215,
+          "costUSD": 0.00296411,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000
+        },
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 10,
+          "outputTokens": 44,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 16400,
+          "costUSD": 0.033030000000000004,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "9f279c3d-9a33-40d6-8955-d3c33b31ab5b"
+    }
+  ]
+}

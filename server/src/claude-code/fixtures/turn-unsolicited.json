@@ -1,0 +1,348 @@
+{
+  "description": "The turn Claude Code starts by itself when the background task finishes: no prompt, so init, status and result carry no uuid. Starts at the task notification.",
+  "recordedWith": "Claude Code 2.1.302, Agent SDK 0.3.302, model haiku, streaming input, includePartialMessages, settingSources []",
+  "hookInputs": [],
+  "awaitInterruptAt": null,
+  "messages": [
+    {
+      "type": "system",
+      "subtype": "task_updated",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "6ed50520-8174-4e08-8850-b5c0c3c54961"
+    },
+    {
+      "type": "system",
+      "subtype": "task_notification",
+      "status": "completed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "5d37bef0-2700-4961-80bf-4b741a390006"
+    },
+    {
+      "type": "system",
+      "subtype": "background_tasks_changed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "33ef3057-4be8-4d85-929b-2930294d0192"
+    },
+    {
+      "type": "system",
+      "subtype": "init",
+      "apiKeySource": "none",
+      "claude_code_version": "2.1.302",
+      "cwd": "/home/example/project",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "model": "claude-haiku-5-5",
+      "permissionMode": "bypassPermissions",
+      "output_style": "default",
+      "capabilities": [
+        "interrupt_receipt_v1",
+        "interrupt_cancel_queued_v1",
+        "interrupt_send_now_v1",
+        "msg_lifecycle_v1",
+        "request_marker_lists_v1",
+        "sdk_mcp_tools_list_changed",
+        "sdk_mcp_manifests",
+        "mcp_read_resource_v1",
+        "mcp_tool_ui_meta_v1",
+        "ui_surface_v1",
+        "mcp_call_result_not_for_model_v1"
+      ]
+    },
+    {
+      "type": "system",
+      "subtype": "status",
+      "status": "requesting",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "75db16d7-37a3-4669-aa84-bd2ed472d2b1"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_start",
+        "message": {
+          "model": "claude-haiku-5-5",
+          "id": "msg_011Cg8NWfKUuMUKc47oiF4WT",
+          "type": "message",
+          "role": "assistant",
+          "content": [],
+          "stop_reason": null,
+          "usage": {
+            "input_tokens": 4,
+            "cache_creation_input_tokens": 417,
+            "cache_read_input_tokens": 20284,
+            "output_tokens": 3
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "7662fa59-1792-4596-8c40-d89c0a4565a2"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 0,
+        "content_block": {
+          "type": "text",
+          "text": ""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "daf897f3-822d-444d-b4fc-2789d70cf2e8"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "The background command"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "143bf508-faee-42aa-a4d7-33c41a6062d6"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " finished with exit code 0"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "da1d7712-c4d1-4444-8a4b-d11e4f10834f"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": ". I haven't read its output"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "bc637186-65ec-4e7d-871a-1050a4aa0719"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " file, so I can"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "41e7d0ed-a8ba-4b2d-818d-c8063fa90cd2"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "'t confirm it"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "db689b0a-c5af-4081-a547-50b3ba620983"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " printed `bg-done`"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "e6363ab8-60f5-4a11-8797-68bf131dbc91"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "."
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "58edec47-2d9f-4e7a-b74a-64f483f0506a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " That check is one"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "9a27d750-a9c8-47e4-bbba-4cbc365c7b37"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " Read away"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "730b3d20-7bc5-43e7-8605-4967bba81b02"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " if you want it"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "b71659ea-4509-4abf-a8b1-a330f784b222"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "."
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "58f8f531-d30b-4740-bcff-64967aab90a2"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg8NWfKUuMUKc47oiF4WT",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "The background command finished with exit code 0. I haven't read its output file, so I can't confirm it printed `bg-done`. That check is one Read away if you want it."
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 4,
+          "cache_creation_input_tokens": 417,
+          "cache_read_input_tokens": 20284,
+          "output_tokens": 3
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "e9fb570c-e95f-4c5b-a99a-944156f76947"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 0
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1eedbdb3-09a9-4bbf-a223-eca70527ca74"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_delta",
+        "delta": {
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "stop_details": null,
+          "container": null
+        },
+        "usage": {
+          "input_tokens": 4,
+          "cache_creation_input_tokens": 417,
+          "cache_read_input_tokens": 20284,
+          "output_tokens": 52
+        },
+        "context_management": {
+          "applied_edits": []
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1b7ba932-5ca3-4732-a803-29c47fae4fd6"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_stop"
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "e5f0526d-646f-4141-9cd9-6ad10ccb0adb"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "stop_reason": "end_turn",
+      "num_turns": 1,
+      "result": "The background command finished with exit code 0. I haven't read its output file, so I can't confirm it printed `bg-done`. That check is one Read away if you want it.",
+      "duration_ms": 1138,
+      "total_cost_usd": 0.0030110999999999996,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 417,
+        "cache_read_input_tokens": 20284,
+        "output_tokens": 52
+      },
+      "modelUsage": {
+        "claude-haiku-5-5": {
+          "inputTokens": 1186,
+          "outputTokens": 281,
+          "cacheReadInputTokens": 68340,
+          "cacheCreationInputTokens": 10343,
+          "costUSD": 0.0030110999999999996,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "1922c8ad-70c7-412f-8b43-beb4bf18e729"
+    }
+  ]
+}

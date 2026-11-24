@@ -1,0 +1,431 @@
+{
+  "description": "A Bash call interrupted mid-run: the turn ends with result/error_during_execution. Messages from awaitInterruptAt on only flow after interrupt().",
+  "recordedWith": "Claude Code 2.1.302, Agent SDK 0.3.302, model haiku, streaming input, includePartialMessages, settingSources []",
+  "hookInputs": [
+    {
+      "hook_event_name": "PreToolUse",
+      "tool_name": "Bash",
+      "tool_input": {
+        "command": "node -e \"setTimeout(() => {}, 40000)\"",
+        "timeout": 60000,
+        "description": "Wait 40 seconds using a node timer"
+      },
+      "tool_use_id": "toolu_01LrH4RFYhfa18eHuNnhGyn4",
+      "cwd": "/home/example/project",
+      "permission_mode": "bypassPermissions",
+      "session_id": "11111111-1111-4111-8111-111111111111"
+    }
+  ],
+  "awaitInterruptAt": 21,
+  "messages": [
+    {
+      "type": "system",
+      "subtype": "init",
+      "apiKeySource": "none",
+      "claude_code_version": "2.1.302",
+      "cwd": "/home/example/project",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "model": "claude-haiku-5-5",
+      "permissionMode": "bypassPermissions",
+      "output_style": "default",
+      "capabilities": [
+        "interrupt_receipt_v1",
+        "interrupt_cancel_queued_v1",
+        "interrupt_send_now_v1",
+        "msg_lifecycle_v1",
+        "request_marker_lists_v1",
+        "sdk_mcp_tools_list_changed",
+        "sdk_mcp_manifests",
+        "mcp_read_resource_v1",
+        "mcp_tool_ui_meta_v1",
+        "ui_surface_v1",
+        "mcp_call_result_not_for_model_v1"
+      ]
+    },
+    {
+      "type": "system",
+      "subtype": "status",
+      "status": "requesting",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "00c358fe-392c-4a32-a0ca-393d50f43a41"
+    },
+    {
+      "type": "rate_limit_event",
+      "rate_limit_info": {
+        "status": "allowed_warning",
+        "resetsAt": 1792587600,
+        "rateLimitType": "seven_day",
+        "utilization": 0.75,
+        "overageStatus": "rejected",
+        "overageDisabledReason": "out_of_credits",
+        "isUsingOverage": false,
+        "surpassedThreshold": 0.75,
+        "unifiedWindows": {
+          "five_hour": {
+            "utilization": 0.05,
+            "resetsAt": 1792280400
+          },
+          "seven_day": {
+            "utilization": 0.75,
+            "resetsAt": 1792587600
+          }
+        },
+        "overageEnabled": true
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "492456fd-f45c-4ed5-8ac9-650e18d80c96"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_start",
+        "message": {
+          "model": "claude-haiku-5-5",
+          "id": "msg_011Cg8K5CiXWaduxoyRsfMGB",
+          "type": "message",
+          "role": "assistant",
+          "content": [],
+          "stop_reason": null,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 4356,
+            "cache_read_input_tokens": 13850,
+            "output_tokens": 16
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "42595639-bd1f-44e5-a330-4e31d26ce4a1"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 0,
+        "content_block": {
+          "type": "tool_use",
+          "id": "toolu_01LrH4RFYhfa18eHuNnhGyn4",
+          "name": "Bash",
+          "input": {},
+          "caller": {
+            "type": "direct"
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "5a1521e9-8bd8-4988-9076-7d41478d52e9"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "{\"command\":"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "aac01f87-36c7-489e-9692-58602ebea4f5"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": " \"node -e \\"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "ddf88d5b-5cb8-46d7-853a-f49ad61be39e"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "\"setTimeout"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "0fb65714-ff83-40d1-b7ef-b4cd97d5c357"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "(() => {}, "
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "41f8f6c0-b568-4b00-a711-e7ecb91196eb"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "40000)\\\"\", "
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "fde738b8-9193-4bb3-8654-429edb9cce4a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "\"descriptio"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "168c3836-c920-405b-83e4-66de4de76073"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "n\": \"Wait 4"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "171d32d7-cf56-483b-9e84-761e1248891e"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "0 seconds u"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "9021342d-93e6-43fc-ba7b-e33a4b90ac95"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "sing a node"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "8ff596a5-8f1c-4ee9-80cc-fead72cfabfc"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": " timer\", \"t"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "8778481c-c1fb-497f-a8a3-e94727f6a995"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "imeout\": 60"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "a9967e29-eb37-4ebc-9c35-2f28db6627e4"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "000}"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "cdc6d38f-aa2a-4190-9c0b-dfdd7db7a803"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg8K5CiXWaduxoyRsfMGB",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01LrH4RFYhfa18eHuNnhGyn4",
+            "name": "Bash",
+            "input": {
+              "command": "node -e \"setTimeout(() => {}, 40000)\"",
+              "description": "Wait 40 seconds using a node timer",
+              "timeout": 60000
+            },
+            "caller": {
+              "type": "direct"
+            }
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 4356,
+          "cache_read_input_tokens": 13850,
+          "output_tokens": 16
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "37d92235-3920-49ec-80a5-15b9efb5d250"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 0
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "cad7c2e9-fcc3-4256-9a51-2da08b780330"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_delta",
+        "delta": {
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "stop_details": null,
+          "container": null
+        },
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 4356,
+          "cache_read_input_tokens": 13850,
+          "output_tokens": 124
+        },
+        "context_management": {
+          "applied_edits": []
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "9ebebf37-4e9f-4d12-8901-4410641c515e"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_stop"
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "71a7de2e-6967-41eb-aef2-8583b8c79aee"
+    },
+    {
+      "type": "user",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "content": "The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.",
+            "is_error": true,
+            "tool_use_id": "toolu_01LrH4RFYhfa18eHuNnhGyn4"
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "4c9c25a7-5a51-4457-8556-e8a2af8c7830"
+    },
+    {
+      "type": "user",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "[Request interrupted by user for tool use]"
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "f9e57a7e-b307-4d68-9f7c-f95db035c96b"
+    },
+    {
+      "type": "result",
+      "subtype": "error_during_execution",
+      "is_error": true,
+      "stop_reason": "tool_use",
+      "num_turns": 3,
+      "errors": [
+        "[ede_diagnostic] result_type=user last_content_type=n/a stop_reason=tool_use"
+      ],
+      "duration_ms": 4132,
+      "total_cost_usd": 0.0012038,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4356,
+        "cache_read_input_tokens": 13850,
+        "output_tokens": 124
+      },
+      "modelUsage": {
+        "claude-haiku-5-5": {
+          "inputTokens": 1221,
+          "outputTokens": 144,
+          "cacheReadInputTokens": 13850,
+          "cacheCreationInputTokens": 4356,
+          "costUSD": 0.0012038,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "aborted_tools",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "2159752d-2437-40fa-9bbe-d4dbc90c08c2"
+    }
+  ]
+}

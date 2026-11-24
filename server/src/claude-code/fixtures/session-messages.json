@@ -1,0 +1,541 @@
+{
+  "description": "Real getSessionMessages output for one haiku session, read twice. preCompact: a text turn, a Bash and two Read calls (one failing), a summarized-thinking turn and an image turn. postCompact: the same session after /compact and one more turn.",
+  "recordedWith": "Claude Code 2.1.302, Agent SDK 0.3.302, model haiku, settingSources []",
+  "cwd": "/home/example/projects/alpha",
+  "preCompact": [
+    {
+      "type": "user",
+      "uuid": "0b69bb52-d0c5-4210-93a9-4bd92a308f65",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reply with exactly: pineapple-7"
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:25.491Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "74ba1525-660f-45db-af5b-0b93111a5404",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpRYwfyUqMZWYXeo1R",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "pineapple-7"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:26.582Z"
+    },
+    {
+      "type": "user",
+      "uuid": "f24b3703-8dca-4c2c-a2e0-0e4edef2c24e",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Use the Bash tool to run `echo fixture-ok`, then use the Read tool to read notes.txt in this folder. Then try to read missing-file.txt with the Read tool (it does not exist). Tell me all three outcomes in one short sentence."
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:27.871Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "ec558d72-8e92-4100-8b2b-1374499bc32a",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpbiPdmgc7pB2xjLB1",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": "tool_use"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:29.467Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "56c99c5c-51b0-4b4e-a730-17ac85072925",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpbiPdmgc7pB2xjLB1",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01LCmyk4EqPnXqxoA1t9GWQ3",
+            "name": "Bash",
+            "input": {
+              "command": "echo fixture-ok",
+              "description": "Print fixture-ok string"
+            },
+            "caller": {
+              "type": "direct"
+            }
+          }
+        ],
+        "stop_reason": "tool_use"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:29.693Z"
+    },
+    {
+      "type": "user",
+      "uuid": "41d8c037-24d5-45c8-bcc6-fa6757ffd3c4",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "tool_use_id": "toolu_01LCmyk4EqPnXqxoA1t9GWQ3",
+            "type": "tool_result",
+            "content": "fixture-ok",
+            "is_error": false
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:29.743Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "90b57147-7f76-4be9-b030-ba034db3e9fe",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpbiPdmgc7pB2xjLB1",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01Psob69gdoDzQf4tw1yXnbD",
+            "name": "Read",
+            "input": {
+              "file_path": "/home/example/projects/alpha/notes.txt"
+            },
+            "caller": {
+              "type": "direct"
+            }
+          }
+        ],
+        "stop_reason": "tool_use"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:30.080Z"
+    },
+    {
+      "type": "user",
+      "uuid": "75eaea54-6100-4d75-9933-2fcff1d40883",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "tool_use_id": "toolu_01Psob69gdoDzQf4tw1yXnbD",
+            "type": "tool_result",
+            "content": "1\thello-from-notes\n2\t"
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:30.102Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "3b0eca7b-c052-4f30-9eb8-bc2984a3b949",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpbiPdmgc7pB2xjLB1",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01BsEe3B1D284V3FHkxrZiec",
+            "name": "Read",
+            "input": {
+              "file_path": "/home/example/projects/alpha/missing-file.txt"
+            },
+            "caller": {
+              "type": "direct"
+            }
+          }
+        ],
+        "stop_reason": "tool_use"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:30.449Z"
+    },
+    {
+      "type": "user",
+      "uuid": "9c3e7f67-a892-4f27-a9ef-6da58dc18c15",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "content": "File does not exist. Note: your current working directory is /home/example/projects/alpha.",
+            "is_error": true,
+            "tool_use_id": "toolu_01BsEe3B1D284V3FHkxrZiec"
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:30.474Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "9476ced5-c411-4c73-8bc9-d814209dee84",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpnazbARK2TkJ72hib",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:31.748Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "55eba55a-a3de-4352-8b63-3b131474a4cc",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpnazbARK2TkJ72hib",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "The `echo fixture-ok` command printed `fixture-ok`, `notes.txt` read as `hello-from-notes`, and `missing-file.txt` failed with \"File does not exist.\""
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:31.958Z"
+    },
+    {
+      "type": "user",
+      "uuid": "6f3db0ab-0d6d-4d81-bf74-5185b411cd20",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "What is 17 * 23? Think it through step by step before answering, then give just the number."
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:33.222Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "f1189f2d-c28b-47cc-95b2-376bb7d0d663",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpzjF18pa4rP6P5r18",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "17*23 breaks down as 17*20 plus 17*3, which is 340 plus 51, giving 391. Since they just want the final number, I'll output 391.\n\n",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:36.819Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "54b1067e-f575-407d-94e4-f001e2ef39b8",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UpzjF18pa4rP6P5r18",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "391"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:36.823Z"
+    },
+    {
+      "type": "user",
+      "uuid": "bfceaf74-00d4-4e7b-8748-04f451dd1136",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "image",
+            "source": {
+              "type": "base64",
+              "media_type": "image/png",
+              "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg=="
+            }
+          },
+          {
+            "type": "text",
+            "text": "What colour is this image? One word."
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:38.182Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "5be6891d-12a9-4386-a78d-359cca62740f",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UqMjHbNC6rpEF2zS8d",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:39.504Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "ec71498f-b104-48fd-a53b-415f8fd8d443",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UqMjHbNC6rpEF2zS8d",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Red"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:39.507Z"
+    }
+  ],
+  "postCompact": [
+    {
+      "type": "user",
+      "uuid": "4a87cd95-ac04-4a08-be67-6f06574c4856",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": "This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.\n\nRed\n\nSummary:\n1. Primary Request and Intent:\n   - The user asked me to reply with exactly \"pineapple-7\" (done).\n   - The user asked me to run `echo fixture-ok` via Bash, read `notes.txt` in the working folder via Read, and try to read `missing-file.txt` (it does not exist). They wanted all three outcomes in one short sentence (done).\n   - The user asked for 17 * 23, reasoned step by step, and wanted only the number. I answered 391 (done).\n   - The user asked for the colour of an attached image in one word. I answered \"Red\" (done).\n   - The user then asked for this compaction-style summary, with no tool calls.\n\n2. Key Technical Concepts:\n   - Bash tool and Read tool usage.\n   - MCP server connection states: claude.ai Google Drive (requires OAuth, unavailable until the user authorizes it through claude.ai connector settings) and claude.ai Claude Docs (connected, then disconnected later in the session).\n   - Deferred tools loaded through ToolSearch.\n\n3. Files and Code Sections:\n   - `notes.txt` (in the working directory `/home/example/projects/alpha`): read successfully. Contents: `hello-from-notes`.\n   - `missing-file.txt` (same directory): does not exist. The Read tool returned \"File does not exist.\"\n   - Image file referenced in the last user turn at `/tmp/example/-home-example-projects-alpha/11111111-1111-4111-8111-111111111111/images/1.png`: colour identified as red.\n\n4. Errors and fixes:\n   - Reading `missing-file.txt` failed as expected because the file does not exist. This was reported as an outcome, not treated as a bug.\n   - No other errors occurred.\n\n5. Problem Solving:\n   - All three requested operations were completed and reported. The arithmetic answer and image colour were provided.\n   - No ongoing troubleshooting.\n\n6. All user messages:\n   - \"Reply with exactly: pineapple-7\"\n   - \"Use the Bash tool to run `echo fixture-ok`, then use the Read tool to read notes.txt in this folder. Then try to read missing-file.txt with the Read tool (it does not exist). Tell me all three outcomes in one short sentence.\"\n   - \"What is 17 * 23? Think it through step by step before answering, then give just the number.\"\n   - A message containing an image with the question \"What colour is this image? One word.\", followed by instructions to produce a plain-text summary of the conversation with no tool calls.\n\n7. Pending Tasks:\n   - None. All explicit requests have been answered.\n\n8. Current Work:\n   - Immediately before this summary, I answered the image-colour question with \"Red\" and am now producing this summary in plain text, as requested, without tool calls.\n\n9. Optional Next Step:\n   - None required. Wait for the user's next instruction.\n\nIf you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: /home/example/.claude/projects/-home-example-projects-alpha/11111111-1111-4111-8111-111111111111.jsonl\nContinue the conversation from where it left off without asking the user any further questions. Resume directly — do not acknowledge the summary, do not recap what was happening, do not preface with \"I'll continue\" or similar. Pick up the last task as if the break never happened.\n\nThe messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them."
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "isCompactSummary": true,
+      "is_meta": true,
+      "timestamp": "2026-10-18T09:39:49.631Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "5be6891d-12a9-4386-a78d-359cca62740f",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UqMjHbNC6rpEF2zS8d",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:39.504Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "ec71498f-b104-48fd-a53b-415f8fd8d443",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UqMjHbNC6rpEF2zS8d",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Red"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:39.507Z"
+    },
+    {
+      "type": "user",
+      "uuid": "db21e21e-17ce-4268-aff9-5a68b8d611d9",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": "<command-name>/compact</command-name>\n            <command-message>compact</command-message>\n            <command-args></command-args>"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "isCompletedLocalCommand": true,
+      "timestamp": "2026-10-18T09:39:40.761Z"
+    },
+    {
+      "type": "user",
+      "uuid": "f864a6d7-3afb-4676-8a66-6bd8db437560",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": "<local-command-stdout>Compacted </local-command-stdout>"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "isCompletedLocalCommand": true,
+      "timestamp": "2026-10-18T09:39:49.744Z"
+    },
+    {
+      "type": "user",
+      "uuid": "a7e29f6c-7f64-472c-a4ae-96b52800612b",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "What was the exact word I first asked you to reply with? Answer with just that word."
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:50.766Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "f66fc942-9fbf-4572-bf0c-22d9754df9f7",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UrHbms8SXPYe4c9KoH",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "thinking",
+            "thinking": "",
+            "signature": "redacted-signature"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:53.483Z"
+    },
+    {
+      "type": "assistant",
+      "uuid": "78d42e87-a9ed-4484-8eb6-bdecf9acdd44",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg9UrHbms8SXPYe4c9KoH",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "pineapple-7"
+          }
+        ],
+        "stop_reason": "end_turn"
+      },
+      "parent_tool_use_id": null,
+      "parent_agent_id": null,
+      "timestamp": "2026-10-18T09:39:53.495Z"
+    }
+  ]
+}

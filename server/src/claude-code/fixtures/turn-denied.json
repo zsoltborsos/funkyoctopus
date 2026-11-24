@@ -1,0 +1,994 @@
+{
+  "description": "A Read denied by a PreToolUse hook (the Vault) under bypassPermissions.",
+  "recordedWith": "Claude Code 2.1.302, Agent SDK 0.3.302, model haiku, streaming input, includePartialMessages, settingSources []",
+  "hookInputs": [
+    {
+      "hook_event_name": "PreToolUse",
+      "tool_name": "Read",
+      "tool_input": {
+        "file_path": "/home/example/project/blocked/secret.txt"
+      },
+      "tool_use_id": "toolu_01JEciy4y7qVRsMwrBSxnUvx",
+      "cwd": "/home/example/project",
+      "permission_mode": "bypassPermissions",
+      "session_id": "11111111-1111-4111-8111-111111111111"
+    }
+  ],
+  "awaitInterruptAt": null,
+  "messages": [
+    {
+      "type": "system",
+      "subtype": "init",
+      "apiKeySource": "none",
+      "claude_code_version": "2.1.302",
+      "cwd": "/home/example/project",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "model": "claude-haiku-5-5",
+      "permissionMode": "bypassPermissions",
+      "output_style": "default",
+      "capabilities": [
+        "interrupt_receipt_v1",
+        "interrupt_cancel_queued_v1",
+        "interrupt_send_now_v1",
+        "msg_lifecycle_v1",
+        "request_marker_lists_v1",
+        "sdk_mcp_tools_list_changed",
+        "sdk_mcp_manifests",
+        "mcp_read_resource_v1",
+        "mcp_tool_ui_meta_v1",
+        "ui_surface_v1",
+        "mcp_call_result_not_for_model_v1"
+      ]
+    },
+    {
+      "type": "system",
+      "subtype": "status",
+      "status": "requesting",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "ce983cef-c1ad-4ddb-9071-30e5d16cfd33"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_start",
+        "message": {
+          "model": "claude-haiku-5-5",
+          "id": "msg_011Cg8K3Fjo9rjihqEvqsZ7D",
+          "type": "message",
+          "role": "assistant",
+          "content": [],
+          "stop_reason": null,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 175,
+            "cache_read_input_tokens": 20639,
+            "output_tokens": 16
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f583d3db-2ce2-4861-9620-8f2a107410ba"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 0,
+        "content_block": {
+          "type": "tool_use",
+          "id": "toolu_01JEciy4y7qVRsMwrBSxnUvx",
+          "name": "Read",
+          "input": {},
+          "caller": {
+            "type": "direct"
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "8660bdec-3a4b-45ec-99ea-774f767e6739"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "{\"fi"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "ec0cb265-abf2-46c0-a61f-d650e803db83"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "le_p"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "c8b6ea33-0337-4fda-be6c-1edd8a1b3943"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "ath\""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "43f059ba-795a-4c53-b91f-159a6e5e5215"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": ": \"/"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "6fb0aec5-ffdf-4345-a82c-7d738456ce55"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "home"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "bb280f71-d864-42ef-a90f-6c470ea2d89a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "/exa"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "368e9c31-6986-4f22-9cbe-74aeef885c64"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "mple"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "87c3569b-ba65-4271-ad03-0c15c431ebab"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "/pro"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "357446d4-f5bb-4648-808a-d88500a7fe24"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "ject"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "9994ac65-6dd8-431c-8840-43d55f0bf956"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "/blo"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "66cb4c02-4e40-493b-9ce9-5cda63da484c"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "cked"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "4bd8a04e-0a2f-4c24-b982-8bdead16940a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "/sec"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "b79dbb5b-d3f9-4f0d-a949-8e4c902a7146"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "ret."
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "e62677f0-78d2-4163-b845-20478d81f53b"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "txt\""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "caed5dd7-7c5e-45db-a7cd-f5c4c0443cdc"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "input_json_delta",
+          "partial_json": "}"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "b2d60dac-022e-4ba4-abe9-8aa0d3779b9c"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg8K3Fjo9rjihqEvqsZ7D",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01JEciy4y7qVRsMwrBSxnUvx",
+            "name": "Read",
+            "input": {
+              "file_path": "/home/example/project/blocked/secret.txt"
+            },
+            "caller": {
+              "type": "direct"
+            }
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 175,
+          "cache_read_input_tokens": 20639,
+          "output_tokens": 16
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "75cfc124-2361-448e-8e89-81e752d29077"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 0
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "0401fe41-f680-493e-9261-323958f60aa2"
+    },
+    {
+      "type": "user",
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "content": "PreToolUse:Read hook error: Vault blocked access to /home/example/project/blocked",
+            "is_error": true,
+            "tool_use_id": "toolu_01JEciy4y7qVRsMwrBSxnUvx"
+          }
+        ]
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "f73ecec4-24c9-4e08-b099-818d230a5f44"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_delta",
+        "delta": {
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "stop_details": null,
+          "container": null
+        },
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 175,
+          "cache_read_input_tokens": 20639,
+          "output_tokens": 124
+        },
+        "context_management": {
+          "applied_edits": []
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "dfe34668-3da5-4c4a-873b-23654a17fd13"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_stop"
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "3d1d6d2e-bfc3-4265-8b5c-68162841e66b"
+    },
+    {
+      "type": "system",
+      "subtype": "status",
+      "status": "requesting",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "740a4c91-5a7e-43be-acb7-0180c4fa3eb8"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_start",
+        "message": {
+          "model": "claude-haiku-5-5",
+          "id": "msg_011Cg8K3Lq8b7EapEGLiSFX8",
+          "type": "message",
+          "role": "assistant",
+          "content": [],
+          "stop_reason": null,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 251,
+            "cache_read_input_tokens": 20814,
+            "output_tokens": 7
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f636c926-971e-483b-a94b-7ecffa53847a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 0,
+        "content_block": {
+          "type": "text",
+          "text": ""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "207e0dae-d17c-493f-8798-5ef2207ac975"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "I couldn't read `"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "ec8679fa-6efb-4b47-90fe-9fa638f7b30e"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "secret.txt`."
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f14e0aca-ca14-4bdd-bd32-25fe6b062666"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " A PreToolUse h"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "26a307bc-5170-4851-85ad-031dda4e0c60"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ook blocked the"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "12dde830-e64c-4913-98b7-f52d17a81e19"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " Read with"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "c24c8807-7599-40fa-94b1-f7b05201c1be"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " the"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "369d6048-d534-4b5b-9d6d-9da37e98c860"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " error \"Vault blocked"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "6af9592f-ec6c-40b3-a6b8-f30288331c78"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " access to ."
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "67784962-3a47-4965-ada0-6a710c228924"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "../sc"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "28d560b9-e84f-43dc-9000-ad751fbfd444"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ratchpad/work/bl"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "637f61f0-2f92-4a00-9177-ec8c799dc3b9"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ocked\". That direct"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f1c61326-9991-4a3b-a05e-687d79e38d9e"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ory looks de"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "5e4507ee-ed18-423b-8082-9184fabac4ba"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "liberately g"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "89fb728d-2220-4890-8f97-7b0db1dee6a5"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ated, so I ha"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "ef97c70f-7c4c-49c5-b8b4-8b3d5102e8a4"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ven't tried another"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "4ff1227a-b8bb-4956-8063-7d8baca34e99"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " route"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "cf95dd27-6f39-4496-a4e0-582217cd8fd6"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " to the"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f73e2250-c0dd-4485-9d4a-a9269b681a0b"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " file,"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "0521c7f9-e0ee-4e8d-805a-f7597b0fb407"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " such as"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "62a7f21b-dc65-47d2-8cda-e69963bc0805"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " Bash, which"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "915c3856-c383-4678-923d-119bc3210f65"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " would get"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "a5ec5c56-525f-4325-a5c2-66092d49edeb"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " around the block"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "06a5c79e-3ad7-4fac-9a3d-9deb037a4c22"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": ".\n\nIf you want the"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "61a1ada5-2956-4fbc-935d-3759bcf2ccab"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " file read, you"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "29ce26c8-258d-43cd-b47f-c733065c1835"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " can l"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "a95208bf-53c0-4fa1-bbb7-73a74d41567e"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ift the rest"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "6b8eff1c-c8e9-41b8-8136-6a8149b5843a"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "riction on"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "044b9b5d-dd6d-446d-93e5-410d62f9744c"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " that directory or read"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "70ad5fa0-199d-4edc-9641-3577997489f0"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " it yourself and"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f3ab24d7-8ece-48e6-bc32-415300b43660"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": " pa"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "4bb9c01d-8559-46f0-af58-650ca35b9e18"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "ste the contents here"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "73d9e5e7-1fd4-4ea7-a949-93c43cfd2be6"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "."
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "1e31db90-5c3b-41cc-9575-c19dad58a404"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg8K3Lq8b7EapEGLiSFX8",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "I couldn't read `secret.txt`. A PreToolUse hook blocked the Read with the error \"Vault blocked access to .../scratchpad/work/blocked\". That directory looks deliberately gated, so I haven't tried another route to the file, such as Bash, which would get around the block.\n\nIf you want the file read, you can lift the restriction on that directory or read it yourself and paste the contents here."
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 251,
+          "cache_read_input_tokens": 20814,
+          "output_tokens": 7
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "92fb871e-6829-48b6-84bf-12f7de1bd54d"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 0
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "207a418f-9337-4adc-94ee-66941c64291d"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_delta",
+        "delta": {
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "stop_details": null,
+          "container": null
+        },
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 251,
+          "cache_read_input_tokens": 20814,
+          "output_tokens": 129
+        },
+        "context_management": {
+          "applied_edits": []
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "7b30e844-c3de-4f2a-826a-6cb3f2ece0a5"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_stop"
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f747c302-f369-47c0-863a-6d66eebfc7ce"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "stop_reason": "end_turn",
+      "num_turns": 2,
+      "result": "I couldn't read `secret.txt`. A PreToolUse hook blocked the Read with the error \"Vault blocked access to .../scratchpad/work/blocked\". That directory looks deliberately gated, so I haven't tried another route to the file, such as Bash, which would get around the block.\n\nIf you want the file read, you can lift the restriction on that directory or read it yourself and paste the contents here.",
+      "duration_ms": 2764,
+      "total_cost_usd": 0.00296411,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 426,
+        "cache_read_input_tokens": 41453,
+        "output_tokens": 253
+      },
+      "modelUsage": {
+        "claude-haiku-5-5": {
+          "inputTokens": 1211,
+          "outputTokens": 517,
+          "cacheReadInputTokens": 114151,
+          "cacheCreationInputTokens": 7215,
+          "costUSD": 0.00296411,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000
+        }
+      },
+      "permission_denials": [
+        {
+          "tool_name": "Read",
+          "tool_use_id": "toolu_01JEciy4y7qVRsMwrBSxnUvx",
+          "tool_input": {
+            "file_path": "/home/example/project/blocked/secret.txt"
+          }
+        }
+      ],
+      "terminal_reason": "completed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "5b0e3df6-53ad-4f9e-9800-2abfd6068f1b"
+    }
+  ]
+}

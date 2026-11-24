@@ -1,0 +1,20 @@
+#!/bin/sh
+# fo — FunkyOctopus command-line client.
+#
+# Resolves the repository from this script's real path (following symlinks so a
+# ~/.local/bin/fo link works), then runs the CLI through the repository's own
+# tsx. One process, one connection; no reconnect logic.
+set -e
+
+script="$0"
+while [ -L "$script" ]; do
+  target=$(readlink "$script")
+  case "$target" in
+    /*) script="$target" ;;
+    *) script="$(dirname "$script")/$target" ;;
+  esac
+done
+repo="$(cd "$(dirname "$script")/.." && pwd)"
+
+cd "$repo"
+exec node --import tsx server/src/cli/fo.ts "$@"

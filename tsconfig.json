@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.server.json" },
+    // Opt-in crew runtime harness: DOM + node + vite/client + aliases so the
+    // real browser ChatSession graph compiles without leaking DOM into the
+    // server project.
+    { "path": "./tsconfig.runtime.json" }
+  ]
+}

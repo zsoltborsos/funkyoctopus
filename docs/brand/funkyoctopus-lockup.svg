@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 64" width="312" height="64" role="img">
+  <title>FunkyOctopus</title>
+  <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" role="img"><title>FunkyOctopus</title><path d="M20 34Q11 39 7 35M21 38Q11 40 9 46M24 40Q17 46 17 54M28 42Q25 50 27 57M36 42Q39 50 37 57M40 40Q47 46 47 54M43 38Q53 40 55 46M44 34Q57 37 57 25" stroke-width="5" stroke="#06b6d4" fill="none"/><path fill-rule="evenodd" d="M16 31V24C16 3 48 3 48 24V31Q48 44 32 44Q16 44 16 31ZM28.5 26A3.5 3.5 0 1 0 21.5 26A3.5 3.5 0 1 0 28.5 26ZM42.5 26A3.5 3.5 0 1 0 35.5 26A3.5 3.5 0 1 0 42.5 26Z" fill="#16213e"/></svg>
+  <text x="80" y="32" dominant-baseline="central" font-family="Geist, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="30" fill="#16213e">FunkyOctopus</text>
+</svg>

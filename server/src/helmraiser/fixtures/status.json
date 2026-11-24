@@ -1,0 +1,43 @@
+{
+  "updated_at": "2026-09-24T19:26:01.881383+00:00",
+  "queued_count": 1,
+  "queue_next": [
+    {"task_id": "-home-example-projects-helmraiser:status-row-identity", "id": "status-row-identity", "priority": "high", "project": "/home/example/projects/helmraiser", "title": "Status rows name their project, id and title", "origin": {"kind": "fo", "session": "/home/example/.pi/agent/sessions/fixture.jsonl"}}
+  ],
+  "running": [
+    {"run_id": "e1fba81e-9ac9-4421-af2c-9a28dc79da8e", "task": "-home-example-projects-helmraiser:planned-runs", "stage": "implement", "iteration": 1, "cost_usd": 2.0657, "minutes": 7, "project": "/home/example/projects/helmraiser", "id": "planned-runs", "title": "Planned runs: a strong model plans, the cheap implementer follows the plan", "origin": null}
+  ],
+  "awaiting_count": 1,
+  "failed_24h_count": 1,
+  "spend": {
+    "openai-codex": {"5h": 8.2382, "7d": 47.0578, "30d": 47.0578},
+    "opencode-go": {"5h": 1.4269, "7d": 2.9648, "30d": 2.9648}
+  },
+  "usage": {
+    "opencode-go": {
+      "5h": {"fraction": 0.11, "spend_usd": 1.4269, "resets_at": 1790278146.086, "warn_at": 0.8, "stop_at": null, "source": "live", "live_fraction": 0.11, "estimate_fraction": 0.118911},
+      "week": {"fraction": 0.11, "spend_usd": 2.9648, "resets_at": 1790553600.0, "warn_at": 0.8, "stop_at": null, "source": "live", "live_fraction": 0.11, "estimate_fraction": 0.113761},
+      "month": {"fraction": 0.05, "spend_usd": 2.9648, "resets_at": 1792257625.0, "warn_at": 0.8, "stop_at": null, "source": "live", "live_fraction": 0.05, "estimate_fraction": 0.056881}
+    }
+  },
+  "caps_enforced": true,
+  "paused": null,
+  "held_providers": {},
+  "worker": {"pid": 1073641, "started_at": "2026-09-24T19:18:19.947510+00:00", "argv": ["python3", "-m", "helmraiser", "work", "--json"], "log": "/home/example/.helmraiser/worker.log", "state": "running"},
+  "queue": {"failed": 16, "landed": 40, "queued": 1, "running": 1, "awaiting_approval": 1},
+  "awaiting": [
+    {"run_id": "865c36b8-a39d-433a-bc6c-87b1715d14e2", "task": "-home-example-projects-helmraiser:report-rejected-split", "pending": "merge", "verdict": "pass", "cost_usd": 0.1138, "project": "/home/example/projects/helmraiser", "id": "report-rejected-split", "title": "Count rejected runs separately", "origin": {"kind": "claude-code", "session": "review-session"}}
+  ],
+  "resuming": [],
+  "failed": [
+    {"run_id": "3b8cf951-3d8c-40cf-a77b-f6cf0f28cedc", "task": "-home-example-projects-helmraiser:live-subscription-usage", "reason": "timeout: pi session exceeded its time limit", "ended_at": "2026-09-24T15:12:13.750020+00:00", "project": "/home/example/projects/helmraiser", "id": "live-subscription-usage", "title": "Live subscription usage"}
+  ],
+  "scouts": {
+    "focus_projects": ["/home/example/projects/helmraiser"],
+    "paused_projects": ["/home/example/projects/funkyoctopus"],
+    "pending": [{"project": "/home/example/projects/helmraiser", "requested_at": "2026-10-02T10:00:00Z", "wait_reason": "slots busy"}],
+    "running": [{"project": "/home/example/projects/funkyoctopus", "scout_id": "scout-1", "started_at": "2026-10-02T10:01:00Z"}],
+    "recent": [{"project": "/home/example/projects/helmraiser", "scout_id": "scout-0", "ended_at": "2026-10-02T09:00:00Z", "ok": true, "drafts": 2, "report": "two candidates", "error": null}]
+  },
+  "status_path": "/run/user/1000/helmraiser/status.json"
+}

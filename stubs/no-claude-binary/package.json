@@ -1,0 +1,6 @@
+{
+  "name": "no-claude-binary",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Stands in for the Agent SDK's bundled claude binary; FunkyOctopus runs the installed claude (CURRENT_STATE decision 12)."
+}

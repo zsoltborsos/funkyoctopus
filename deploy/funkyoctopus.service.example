@@ -1,0 +1,16 @@
+[Unit]
+Description=FunkyOctopus agent cockpit
+After=network.target
+
+[Service]
+WorkingDirectory=<deploy dir>
+ExecStart="<absolute node>" --import tsx server/src/entrypoint.ts
+Environment="PATH=<PATH>"
+Environment=FUNKYOCTOPUS_SERVE_UI=1
+Environment=SIDECAR_HOST=127.0.0.1
+Environment=SIDECAR_PORT=14787
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

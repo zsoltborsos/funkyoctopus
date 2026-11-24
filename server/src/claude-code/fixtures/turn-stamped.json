@@ -1,0 +1,255 @@
+{
+  "description": "A plain turn answering a prompt that carried a uuid: init, status, the first stream event, the assistant message and the result all name it.",
+  "stampedWith": "a144d349-104a-4b45-8b7b-55745caf6bca",
+  "recordedWith": "Claude Code 2.1.302, Agent SDK 0.3.302, model haiku, streaming input, includePartialMessages, settingSources []",
+  "hookInputs": [],
+  "awaitInterruptAt": null,
+  "messages": [
+    {
+      "type": "command_lifecycle",
+      "command_uuid": "a144d349-104a-4b45-8b7b-55745caf6bca",
+      "state": "queued",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "4298d3c3-2edd-409c-b035-9552260d7009"
+    },
+    {
+      "type": "command_lifecycle",
+      "command_uuid": "a144d349-104a-4b45-8b7b-55745caf6bca",
+      "state": "started",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "02dc4902-4e34-417f-98cf-619207809056"
+    },
+    {
+      "type": "system",
+      "subtype": "init",
+      "apiKeySource": "none",
+      "claude_code_version": "2.1.302",
+      "cwd": "/home/example/project",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "model": "claude-haiku-5-5",
+      "permissionMode": "bypassPermissions",
+      "output_style": "default",
+      "capabilities": [
+        "interrupt_receipt_v1",
+        "interrupt_cancel_queued_v1",
+        "interrupt_send_now_v1",
+        "msg_lifecycle_v1",
+        "request_marker_lists_v1",
+        "sdk_mcp_tools_list_changed",
+        "sdk_mcp_manifests",
+        "mcp_read_resource_v1",
+        "mcp_tool_ui_meta_v1",
+        "ui_surface_v1",
+        "mcp_call_result_not_for_model_v1"
+      ],
+      "user_message_uuids": [
+        "a144d349-104a-4b45-8b7b-55745caf6bca"
+      ]
+    },
+    {
+      "type": "system",
+      "subtype": "status",
+      "status": "requesting",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "bf86a2d5-bf4e-48e9-9376-a51d0e79ff1d",
+      "user_message_uuids": [
+        "a144d349-104a-4b45-8b7b-55745caf6bca"
+      ]
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_start",
+        "message": {
+          "model": "claude-haiku-5-5",
+          "id": "msg_011Cg8NVdbmQr1r14fbyscPC",
+          "type": "message",
+          "role": "assistant",
+          "content": [],
+          "stop_reason": null,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3961,
+            "cache_read_input_tokens": 13850,
+            "output_tokens": 4
+          }
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "29eeeb0f-8ab8-49dc-960e-91543263e48c",
+      "user_message_uuid": "a144d349-104a-4b45-8b7b-55745caf6bca",
+      "user_message_uuids": [
+        "a144d349-104a-4b45-8b7b-55745caf6bca"
+      ]
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_start",
+        "index": 0,
+        "content_block": {
+          "type": "text",
+          "text": ""
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "7e5ce2fe-53f3-48b3-9d63-18c8119b3a63"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_delta",
+        "index": 0,
+        "delta": {
+          "type": "text_delta",
+          "text": "pong"
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "ddc94ebd-8053-4088-bf58-a0946f71ad00"
+    },
+    {
+      "type": "assistant",
+      "message": {
+        "model": "claude-haiku-5-5",
+        "id": "msg_011Cg8NVdbmQr1r14fbyscPC",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "pong"
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 3961,
+          "cache_read_input_tokens": 13850,
+          "output_tokens": 4
+        }
+      },
+      "parent_tool_use_id": null,
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "0c000798-3cf4-47f1-9280-7f394ba76138",
+      "user_message_uuid": "a144d349-104a-4b45-8b7b-55745caf6bca",
+      "user_message_uuids": [
+        "a144d349-104a-4b45-8b7b-55745caf6bca"
+      ]
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "content_block_stop",
+        "index": 0
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "18fc7673-6ae2-450a-bd75-eb15d301d83f"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_delta",
+        "delta": {
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "stop_details": null,
+          "container": null
+        },
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 3961,
+          "cache_read_input_tokens": 13850,
+          "output_tokens": 4
+        },
+        "context_management": {
+          "applied_edits": []
+        }
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "d90864f5-f0a4-4801-9358-3111fb5961f5"
+    },
+    {
+      "type": "stream_event",
+      "event": {
+        "type": "message_stop"
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "parent_tool_use_id": null,
+      "uuid": "f210a6f7-f4a9-4b57-8fc2-e0205d2dfd40"
+    },
+    {
+      "type": "rate_limit_event",
+      "rate_limit_info": {
+        "status": "allowed_warning",
+        "resetsAt": 1792587600,
+        "rateLimitType": "seven_day",
+        "utilization": 0.77,
+        "overageStatus": "rejected",
+        "overageDisabledReason": "out_of_credits",
+        "isUsingOverage": false,
+        "surpassedThreshold": 0.75,
+        "unifiedWindows": {
+          "five_hour": {
+            "utilization": 0.16,
+            "resetsAt": 1792280400
+          },
+          "seven_day": {
+            "utilization": 0.77,
+            "resetsAt": 1792587600
+          }
+        },
+        "overageEnabled": true
+      },
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "777c17d0-57d3-41bd-9c26-d6013c7fa573"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "stop_reason": "end_turn",
+      "num_turns": 1,
+      "result": "pong",
+      "duration_ms": 2685,
+      "total_cost_usd": 0.0009329000000000001,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3961,
+        "cache_read_input_tokens": 13850,
+        "output_tokens": 4
+      },
+      "modelUsage": {
+        "claude-haiku-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 4,
+          "cacheReadInputTokens": 13850,
+          "cacheCreationInputTokens": 3961,
+          "costUSD": 0.0009329000000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "d13f983e-0c26-4af5-a588-2e2804cfba17",
+      "user_message_uuid": "a144d349-104a-4b45-8b7b-55745caf6bca",
+      "user_message_uuids": [
+        "a144d349-104a-4b45-8b7b-55745caf6bca"
+      ]
+    },
+    {
+      "type": "command_lifecycle",
+      "command_uuid": "a144d349-104a-4b45-8b7b-55745caf6bca",
+      "state": "completed",
+      "session_id": "11111111-1111-4111-8111-111111111111",
+      "uuid": "fd3db8d8-1b25-479d-bd81-83f58be64a49"
+    }
+  ]
+}

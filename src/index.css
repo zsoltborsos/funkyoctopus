@@ -1,0 +1,259 @@
+@import 'tailwindcss';
+
+/* No component uses the `dark:` variant: each theme block below sets its own
+   values and `color-scheme`. `.dark` on <html> is a leftover hook, not a
+   signal of the active scheme. */
+@variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Colours are named for what they MEAN, never for their hue, so a theme can
+   change a hue without a single class changing:
+
+     bg, surface, surface-raised   page, panel, title/status bar
+     border                        rules and outlines (never a text colour)
+     text, muted, faint            body text; secondary text (labels, timestamps,
+                                   metadata, the thinking fold); decoration only
+                                   (separators, pipes, rules — never text)
+     accent, accent-soft           the brand highlight: active nav, titles,
+                                   primary actions, focus, selection, progress,
+                                   favourites; and its tinted fill
+     ok                            success / up / landed / passed / added
+     danger                        failure, errors, destructive actions
+     attention                     exactly ONE meaning: a warning, or something
+                                   waiting on you (crew waiting, approval
+                                   pending, stale data, context nearly full, a
+                                   text-only model holding an image, an SDK that
+                                   needs a hand). Never titles, actions,
+                                   progress or code highlighting (T1.4)
+     info                          links, neutral in-flight data (stage, queued,
+                                   usage), the user's own turn, code literals
+     special                       agent-side machinery: thinking, the crew, the
+                                   Vault, the Claude glyph, code keywords
+
+   Utilities read `text-accent`, `bg-surface`, `border-border`, `text-muted`,
+   `shadow-glow-accent`, `fill-ok`, `stroke-info`, `font-mono`, … A theme is
+   one block of `--theme-*` values (Brand has a light and a dark variant); the
+   `@theme inline` map below points the utilities at them, so a theme block
+   plus its registry entry is all a new theme adds.
+   ------------------------------------------------------------------------- */
+
+/* Themes. `data-theme` on <html> picks one (index.html sets it before first
+   paint from the stored preference; App keeps it in sync). The registry of
+   names is `src/features/settings/themes.ts`. Brand comes first and also owns
+   `:root`, so a missing or unknown `data-theme` falls back to it; every other
+   theme is one `[data-theme='…']` block placed after Brand's (same
+   specificity, so the later block wins) that sets every token below. */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Theme: brand — the ZB Code Shipyard look (the owner's site design system).
+   It follows the system light/dark setting: dark here, light in the media
+   block below. Contrast (WCAG): every text token is ≥ 4.5:1 on bg, surface,
+   surface-raised and the accent-soft / danger tints in both variants; faint
+   and border are decoration only. */
+:root,
+[data-theme='brand'] {
+  color-scheme: dark;
+  --theme-font-sans: 'Geist', system-ui, sans-serif;
+  --theme-font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --theme-bg: #0d1117;
+  --theme-surface: #161b22;
+  --theme-surface-raised: #21262d;
+  --theme-border: #30363d;
+  --theme-text: #c9d1d9;
+  /* 4.95:1 on surface-raised, the darkest panel it sits on. */
+  --theme-muted: #8b949e;
+  --theme-faint: #484f58;
+
+  --theme-accent: #06b6d4;
+  --theme-accent-soft: rgba(6, 182, 212, 0.12);
+  --theme-ok: #34d399;
+  --theme-danger: #f85149;
+  --theme-attention: #fcd34d;
+  --theme-info: #58a6ff;
+  --theme-special: #bc8cff;
+
+  --theme-glow-accent: 0 0 #0000;
+  --theme-glow-ok: 0 0 #0000;
+  --theme-glow-danger: 0 0 #0000;
+}
+
+@media (prefers-color-scheme: light) {
+  :root,
+  [data-theme='brand'] {
+    color-scheme: light;
+
+    --theme-bg: #f4f8fc;
+    --theme-surface: #ffffff;
+    /* Lighter than the site's #dde8f4 so the status bar's small text keeps
+       4.5:1. */
+    --theme-surface-raised: #e6eef7;
+    /* Darker than the site's #c4d4e8 so panel edges show on the page. */
+    --theme-border: #aebfd6;
+    --theme-text: #1a1a2e;
+    /* 4.75:1 on surface-raised. */
+    --theme-muted: #546a85;
+    --theme-faint: #a3b5cc;
+
+    /* The site's light primary (#16213e) is too close to the text colour to
+       mark anything, and its cyan (#06b6d4) is 2.3:1 on the page; a deep cyan
+       keeps the brand hue at text contrast. The status hues are the site's
+       emerald / amber / red, darkened to 4.5:1 on every surface (ok is a plainer
+       green so it does not read as the accent). */
+    --theme-accent: #0d6f8a;
+    --theme-accent-soft: rgba(13, 111, 138, 0.1);
+    /* A plain green, apart from the teal accent; 6.1:1 on surface-raised. */
+    --theme-ok: #166534;
+    --theme-danger: #ba372a;
+    --theme-attention: #a64c08;
+    --theme-info: #1d4ed8;
+    --theme-special: #533483;
+  }
+}
+
+/* Theme: matrix — the original look, dark only. */
+[data-theme='matrix'] {
+  color-scheme: dark;
+  --theme-font-sans: 'Inter', system-ui, sans-serif;
+  --theme-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --theme-bg: #050505;
+  --theme-surface: #0a0a0a;
+  --theme-surface-raised: #0f0f0f;
+  --theme-border: #1a1a1a;
+  --theme-text: #e0e0e0;
+  /* 6.1:1 on the surface (AA for small text). */
+  --theme-muted: #8f8f8f;
+  /* 1.7:1 — decorative only. */
+  --theme-faint: #3a3a3a;
+
+  --theme-accent: #00ff41;
+  --theme-accent-soft: rgba(0, 255, 65, 0.1);
+  --theme-ok: #00ff41;
+  --theme-danger: #ff003c;
+  --theme-attention: #fcee0a;
+  --theme-info: #00e5ff;
+  --theme-special: #d600ff;
+
+  --theme-glow-accent: 0 0 10px rgba(0, 255, 65, 0.2);
+  --theme-glow-ok: 0 0 10px rgba(0, 255, 65, 0.2);
+  --theme-glow-danger: 0 0 10px rgba(255, 0, 60, 0.2);
+}
+
+@theme inline {
+  --color-bg: var(--theme-bg);
+  --color-surface: var(--theme-surface);
+  --color-surface-raised: var(--theme-surface-raised);
+  --color-border: var(--theme-border);
+  --color-text: var(--theme-text);
+  --color-muted: var(--theme-muted);
+  --color-faint: var(--theme-faint);
+
+  --color-accent: var(--theme-accent);
+  --color-accent-soft: var(--theme-accent-soft);
+  --color-ok: var(--theme-ok);
+  --color-danger: var(--theme-danger);
+  --color-attention: var(--theme-attention);
+  --color-info: var(--theme-info);
+  --color-special: var(--theme-special);
+
+  --shadow-glow-accent: var(--theme-glow-accent);
+  --shadow-glow-ok: var(--theme-glow-ok);
+  --shadow-glow-danger: var(--theme-glow-danger);
+
+  --font-mono: var(--theme-font-mono);
+  --font-sans: var(--theme-font-sans);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Comfortable base; the font-size preference overrides this on <html> at
+   runtime and the rem-based UI scales with it. */
+html {
+  font-size: 17px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  font-family: var(--theme-font-sans);
+}
+
+/* ---------------------------------------------------------------------------
+   Assistant markdown (`.md`, src/features/chat/MessageView.tsx). Hand-rolled
+   rather than @tailwindcss/typography so the only renderer deps are the three
+   in decision 2. Code-block chrome is a React component (`.md-code`); these
+   rules cover the prose and the `hljs-*` tokens rehype-highlight emits.
+   ------------------------------------------------------------------------- */
+.md > :first-child { margin-top: 0; }
+.md > :last-child { margin-bottom: 0; }
+.md p, .md ul, .md ol, .md blockquote, .md table, .md hr { margin: 0.6em 0; }
+.md h1, .md h2, .md h3, .md h4 { margin: 1em 0 0.4em; font-weight: 600; line-height: 1.3; }
+.md h1 { font-size: 1.45em; }
+.md h2 { font-size: 1.2em; }
+.md h3, .md h4 { font-size: 1em; }
+/* Inside a Leeboard entry the entry's title leads; a body's headings (a "## Reply (…)" section) stay at body size. */
+.md-flat h1, .md-flat h2, .md-flat h3, .md-flat h4 { font-size: 1em; }
+.md ul, .md ol { padding-left: 1.5em; }
+.md ul { list-style: disc; }
+.md ol { list-style: decimal; }
+.md li + li { margin-top: 0.2em; }
+.md li > p { margin: 0; }
+.md a { color: var(--theme-info); text-decoration: underline; text-underline-offset: 2px; }
+.md strong { font-weight: 700; }
+.md blockquote { border-left: 2px solid var(--theme-faint); padding-left: 0.8em; color: var(--theme-muted); }
+.md hr { border: 0; border-top: 1px solid var(--theme-border); }
+.md code { font-size: 0.9em; }
+.md :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--theme-text) 10%, transparent);
+  color: var(--theme-text);
+}
+.md table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 0.9em; }
+.md th, .md td {
+  border: 1px solid var(--theme-border);
+  padding: 0.3em 0.7em;
+  text-align: left;
+  vertical-align: top;
+  /* The bubble wraps anywhere for long tokens; cells must not split words. */
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.md th { color: var(--theme-text); font-weight: 600; }
+.md input[type='checkbox'] { margin-right: 0.4em; }
+
+/* Highlight tokens on the theme palette: special keywords, ok strings, info
+   literals/attributes, muted comments; body text is the panel's text.
+   Attention stays out of code so it keeps its one meaning (T1.4). */
+.md pre code { color: var(--theme-text); }
+.hljs-comment, .hljs-quote { color: var(--theme-muted); font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-meta, .hljs-doctag, .hljs-tag { color: var(--theme-special); }
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-template-tag { color: var(--theme-ok); }
+.hljs-number, .hljs-literal, .hljs-attr, .hljs-attribute, .hljs-variable, .hljs-template-variable,
+.hljs-built_in, .hljs-type, .hljs-symbol, .hljs-bullet, .hljs-link, .hljs-selector-id,
+.hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-name { color: var(--theme-info); }
+.hljs-title, .hljs-section, .hljs-title.function_, .hljs-title.class_, .hljs-params { color: var(--theme-text); }
+.hljs-deletion { color: var(--theme-danger); }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }

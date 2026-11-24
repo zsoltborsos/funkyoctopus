@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FunkyOctopus</title>
+    <!-- Sets the stored theme before first paint so it never flashes in on
+         load; App keeps it in sync afterwards. An unknown value falls back to
+         Brand in the CSS. Same key as PreferencesService. -->
+    <script>
+      try {
+        var t = JSON.parse(localStorage.getItem('funkyoctopus.preferences') || '{}').theme;
+        document.documentElement.dataset.theme = typeof t === 'string' ? t : 'brand';
+      } catch (e) {
+        document.documentElement.dataset.theme = 'brand';
+      }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
