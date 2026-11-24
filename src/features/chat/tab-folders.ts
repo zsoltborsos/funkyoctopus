@@ -1,6 +1,5 @@
 import { token } from '@core/container/container.ts';
 import type { StorageAdapter } from '@shared/storage/storage-adapter.ts';
-import { MAIN_CHAT } from '@shared/transport/protocol.ts';
 import type { Project } from '@features/settings/preferences.types.ts';
 
 const STORAGE_KEY = 'funkyoctopus.chat.tab-folders';
@@ -27,7 +26,7 @@ const PICK_HOLD_MS = 15_000;
 /**
  * Each chat tab's working folder (T2.2 review), kept browser-side beside the
  * tab's model pick, so tabs never share one folder. A tab with none recorded is
- * Global, except `main`, which starts on the pre-tabs global folder.
+ * Global.
  */
 export class TabFolders {
   private stored: Record<string, Project | null>;
@@ -38,8 +37,6 @@ export class TabFolders {
 
   constructor(
     private readonly storage: StorageAdapter,
-    /** The pre-tabs single folder (preferences), `main`'s until it has its own. */
-    private readonly legacyMain: () => Project | null = () => null,
     private readonly now: () => number = Date.now,
   ) {
     this.stored = storage.get<Record<string, Project | null>>(STORAGE_KEY) ?? {};
@@ -58,11 +55,7 @@ export class TabFolders {
       getVersion: this.getVersion,
       get: () =>
         // Own keys only: a tab id is never a property of Object (`__proto__`, `constructor`).
-        Object.hasOwn(this.stored, chatId)
-          ? (this.stored[chatId] ?? null)
-          : chatId === MAIN_CHAT
-            ? this.legacyMain()
-            : null,
+        Object.hasOwn(this.stored, chatId) ? (this.stored[chatId] ?? null) : null,
       set: (project) => {
         const owned = Object.hasOwn(this.stored, chatId);
         const current = owned ? this.stored[chatId] : undefined;

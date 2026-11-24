@@ -40,14 +40,6 @@ describe('TabModels', () => {
     expect(models.forTab('main', () => 'claude-code').get()).toEqual({ model: null, effort: null });
   });
 
-  it('falls back to the old single global pick when it suits the tab’s engine', () => {
-    const legacy = { model: PI_BIG, effort: 'low' };
-    const models = new TabModels(new MemoryStorageAdapter(), () => legacy);
-
-    expect(models.forTab('main', () => 'pi').get()).toEqual(legacy);
-    expect(models.forTab('c', () => 'claude-code').get()).toEqual({ model: null, effort: null });
-  });
-
   it('forgets the picks of tabs that no longer exist, and a vanished tab falls back gracefully', () => {
     const storage = new MemoryStorageAdapter();
     const models = new TabModels(storage);

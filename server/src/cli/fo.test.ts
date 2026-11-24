@@ -429,8 +429,6 @@ describe('fo call commands', () => {
     });
     for (const argv of [
       ['nonsense'],
-      // The legacy squadron subcommand is deliberately rejected, not aliased.
-      ['squadron'],
       ['call'],
       ['call', 'method', '{bad json}'],
       ['chats', '--root', '/p', '--global'],
@@ -481,8 +479,6 @@ describe('fo call commands', () => {
       for (const command of commands) {
         expect(result.out).toContain(command);
       }
-      // Do not advertise the rejected legacy squadron subcommand.
-      expect(result.out).not.toContain('squadron');
     }
   });
 });

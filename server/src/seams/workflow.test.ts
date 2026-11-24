@@ -711,11 +711,9 @@ describe('helmraiser.propose / helmraiser.queue path guard', () => {
   });
 
   it.each(['helmraiser.propose', 'helmraiser.queue'])(
-    '%s rejects legacy, outside and nested tasks before the CLI', async (method) => {
+    '%s rejects outside and nested tasks before the CLI', async (method) => {
       await openBase();
       const paths = [
-        // Legacy .squadron tasks must remain rejected after the rename.
-        join(project(), '.squadron', 'tasks', 'legacy.md'),
         join(project(), 'elsewhere.md'),
         join(project(), '.helmraiser', 'tasks', 'sub', 'nested.md'),
       ];

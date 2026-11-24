@@ -9,9 +9,8 @@ async function loadConfig() {
   return (await import('../config.ts')).config;
 }
 
-// Legacy SQUADRON_BIN / SQUADRON_DATA_DIR occur only to prove these overrides stay ignored.
 beforeEach(() => {
-  for (const key of ['HELMRAISER_BIN', 'HELMRAISER_DATA_DIR', 'SQUADRON_BIN', 'SQUADRON_DATA_DIR']) {
+  for (const key of ['HELMRAISER_BIN', 'HELMRAISER_DATA_DIR']) {
     vi.stubEnv(key, undefined);
   }
 });
@@ -55,23 +54,5 @@ describe('Helmraiser configuration', () => {
   it('resolves HELMRAISER_DATA_DIR', async () => {
     vi.stubEnv('HELMRAISER_DATA_DIR', 'local-helmraiser');
     expect((await loadConfig()).helmraiserDataDir).toBe(resolve('local-helmraiser'));
-  });
-
-  it('ignores legacy orchestration overrides', async () => {
-    vi.stubEnv('SQUADRON_BIN', 'obsolete');
-    vi.stubEnv('SQUADRON_DATA_DIR', '/obsolete');
-    const config = await loadConfig();
-    expect(config.helmraiserBin).toBe('helmraiser');
-    expect(config.helmraiserDataDir).toBe(resolve(homedir(), '.helmraiser'));
-  });
-
-  it('uses Helmraiser overrides even when legacy variables are present', async () => {
-    vi.stubEnv('SQUADRON_BIN', 'obsolete');
-    vi.stubEnv('SQUADRON_DATA_DIR', '/obsolete');
-    vi.stubEnv('HELMRAISER_BIN', '/opt/helmraiser');
-    vi.stubEnv('HELMRAISER_DATA_DIR', '/tmp/helmraiser-test-store');
-    const config = await loadConfig();
-    expect(config.helmraiserBin).toBe('/opt/helmraiser');
-    expect(config.helmraiserDataDir).toBe('/tmp/helmraiser-test-store');
   });
 });

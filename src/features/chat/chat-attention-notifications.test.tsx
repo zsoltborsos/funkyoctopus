@@ -113,10 +113,9 @@ afterEach(() => {
 });
 
 describe('chat attention preferences', () => {
-  it('defaults off for empty and older storage, persists independently of Helmraiser', () => {
+  it('defaults off, persists independently of Helmraiser', () => {
     const storage = new MemoryStorageAdapter();
-    // Legacy notifySquadron storage must retain the independent run-notification opt-in.
-    storage.set('funkyoctopus.preferences', { notifySquadron: true });
+    storage.set('funkyoctopus.preferences', { notifyHelmraiser: true });
     const prefs = new PreferencesService(storage);
     expect(prefs.get()).toMatchObject({ notifyChat: false, notifyHelmraiser: true });
 

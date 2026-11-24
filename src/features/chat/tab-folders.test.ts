@@ -18,16 +18,10 @@ describe('TabFolders', () => {
 
   it('keeps Global (null) as a choice of its own, and survives a reload', () => {
     const storage = new MemoryStorageAdapter();
-    const legacy = () => FO;
-    new TabFolders(storage, legacy).forTab('main').set(null);
+    new TabFolders(storage).forTab('main').set(FO);
+    new TabFolders(storage).forTab('main').set(null);
 
-    expect(new TabFolders(storage, legacy).forTab('main').get()).toBeNull();
-  });
-
-  it('starts main on the old single global folder, and only main', () => {
-    const folders = new TabFolders(new MemoryStorageAdapter(), () => FO);
-    expect(folders.forTab('main').get()).toEqual(FO);
-    expect(folders.forTab('b').get()).toBeNull();
+    expect(new TabFolders(storage).forTab('main').get()).toBeNull();
   });
 
   it('forgets the folders of tabs that no longer exist', () => {
@@ -54,7 +48,7 @@ describe('TabFolders', () => {
   });
 
   it.each(['__proto__', 'constructor', 'toString'])('a tab named %s reads as no folder, not a property of Object', (chatId) => {
-    const folders = new TabFolders(new MemoryStorageAdapter(), () => FO);
+    const folders = new TabFolders(new MemoryStorageAdapter());
     expect(folders.forTab(chatId).get()).toBeNull();
     folders.follow(chatId, '/work/sq', true);
     expect(folders.forTab(chatId).get()?.path).toBe('/work/sq');

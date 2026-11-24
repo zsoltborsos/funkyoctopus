@@ -71,33 +71,6 @@ describe('PreferencesService', () => {
     expect(service.get().sidebarPosition).toBe(DEFAULT_PREFERENCES.sidebarPosition);
   });
 
-  // Legacy notifySquadron inputs represent preferences saved before the rename.
-  it.each([true, false])('migrates the legacy notification value %s and persists the new shape', (enabled) => {
-    const storage = new MemoryStorageAdapter();
-    storage.set('funkyoctopus.preferences', {
-      notifySquadron: enabled,
-      fontSize: 19,
-      notifyChat: true,
-      workspaceRoots: ['/legacy/root'],
-    });
-
-    const expected = { ...DEFAULT_PREFERENCES, notifyHelmraiser: enabled, fontSize: 19, notifyChat: true };
-    const service = new PreferencesService(storage);
-    expect(service.get()).toEqual(expected);
-    expect(storage.get('funkyoctopus.preferences')).toEqual(expected);
-    expect(new PreferencesService(storage).get()).toEqual(expected);
-  });
-
-  it.each([true, false])('keeps an explicit new notification value %s over the legacy value', (enabled) => {
-    const storage = new MemoryStorageAdapter();
-    storage.set('funkyoctopus.preferences', { notifySquadron: !enabled, notifyHelmraiser: enabled });
-
-    const expected = { ...DEFAULT_PREFERENCES, notifyHelmraiser: enabled };
-    expect(new PreferencesService(storage).get()).toEqual(expected);
-    expect(storage.get('funkyoctopus.preferences')).toEqual(expected);
-    expect(new PreferencesService(storage).get()).toEqual(expected);
-  });
-
   it('notifies subscribers on update and stops after unsubscribe', () => {
     const { service } = makeService();
     const listener = vi.fn();
@@ -109,22 +82,5 @@ describe('PreferencesService', () => {
     unsubscribe();
     service.update({ fontSize: 22 });
     expect(listener).toHaveBeenCalledTimes(1);
-  });
-
-  it('drops a stored legacy workspaceRoots key on load and never writes it back', () => {
-    const storage = new MemoryStorageAdapter();
-    storage.set('funkyoctopus.preferences', {
-      fontSize: 19,
-      workspaceRoots: ['/legacy/root'],
-    });
-
-    const service = new PreferencesService(storage);
-    expect(service.get()).toEqual({ ...DEFAULT_PREFERENCES, fontSize: 19 });
-    expect('workspaceRoots' in service.get()).toBe(false);
-
-    service.update({ fontSize: 20 });
-    const persisted = storage.get<Record<string, unknown>>('funkyoctopus.preferences');
-    expect(persisted?.fontSize).toBe(20);
-    expect('workspaceRoots' in (persisted ?? {})).toBe(false);
   });
 });

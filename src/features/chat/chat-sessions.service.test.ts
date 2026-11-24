@@ -515,10 +515,12 @@ describe('ChatSessions: tab folders follow the sidecar’s slots (T2.3)', () => 
 
   it('a Global root holding no session says nothing: main keeps its stored folder (the first T2.3 boot)', () => {
     const old = { id: '/old', name: 'old', path: '/old', envTier: 'normal' as const };
-    const folders = new TabFolders(new MemoryStorageAdapter(), () => old);
+    const storage = new MemoryStorageAdapter();
+    storage.set('funkyoctopus.chat.tab-folders', { main: old });
+    const folders = new TabFolders(storage);
     const { emit } = harness(new MemoryStorageAdapter(), { folders });
     emit({ kind: 'slots', slots: [slot('main')] });
-    expect(folders.forTab('main').get()).toBe(old);
+    expect(folders.forTab('main').get()).toEqual(old);
 
     // A Global root that holds a session is where the chat is: followed.
     emit({ kind: 'slot-state', slot: slot('main', 'pi', { session: info('pi', 'g1') }) });
@@ -527,7 +529,7 @@ describe('ChatSessions: tab folders follow the sidecar’s slots (T2.3)', () => 
 
   it('an older slot state never undoes a folder the browser just picked; the sidecar catching up, or a later move, is followed', () => {
     let now = 1_000;
-    const folders = new TabFolders(new MemoryStorageAdapter(), () => null, () => now);
+    const folders = new TabFolders(new MemoryStorageAdapter(), () => now);
     const { emit } = harness(new MemoryStorageAdapter(), { folders });
     emit({ kind: 'slots', slots: [slot('main'), slot('b', 'claude-code', { root: '/work/old' })] });
 

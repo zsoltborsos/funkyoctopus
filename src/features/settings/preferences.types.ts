@@ -30,10 +30,6 @@ export interface Preferences {
   theme: ThemeId;
   showTimestamps: boolean;
   sidebarPosition: SidebarPosition;
-  /** Chat model + effort the composer sends with each turn. Null model falls
-   *  back to the sidecar's default; null effort lets the model decide. */
-  chatModel: ModelRef | null;
-  chatEffort: string | null;
   /** Starred models, as `provider::id` keys, pinned atop the picker. */
   favoriteModels: string[];
   /** Whether tool details start expanded; each row can override this locally. */
@@ -42,8 +38,6 @@ export interface Preferences {
   notifyHelmraiser: boolean;
   /** Opt-in browser notifications for finished turns and crew attention states. */
   notifyChat: boolean;
-  /** Null selects global/studio mode. */
-  activeProject: Project | null;
 }
 
 export const DEFAULT_PREFERENCES: Preferences = {
@@ -51,11 +45,8 @@ export const DEFAULT_PREFERENCES: Preferences = {
   theme: DEFAULT_THEME,
   showTimestamps: true,
   sidebarPosition: 'left',
-  chatModel: null,
-  chatEffort: null,
   favoriteModels: [],
   toolStepsDefaultOpen: false,
   notifyHelmraiser: false,
   notifyChat: false,
-  activeProject: null,
 };

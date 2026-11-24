@@ -90,7 +90,7 @@ let scouted = [
 const expectedDiscuss = `Help me refine this Helmraiser draft.\n\nProject: ${project}\nTitle: Refine the Helmraiser cockpit\nTask file: ${paths.discuss}\n\nRead the task file, help refine it, and queue it only when I am happy with it.`;
 const generatedBody = '## Goal\n\nQueue from chat.\n\n## Change\n\nKeep origin provenance.';
 const generatedReply = `\`\`\`helmraiser-task\ntitle: Generated from chat\n${generatedBody}\n\`\`\``;
-const oldCompatibleStatus = {
+const minimalStatus = {
   updated_at: new Date(0).toISOString(), queued_count: 0, queue_next: [], running: [],
   awaiting_count: 0, failed_24h_count: 0, spend: {}, usage: {}, caps_enforced: false,
   paused: null, held_providers: {}, worker: { state: 'running' },
@@ -105,7 +105,7 @@ const awaitingRun = {
 const reviewTaskPath = '/fixture/runs/fixture-run/task.md';
 const planPath = '/fixture/runs/fixture-run/plan.md';
 const expectedReview = `Review this Helmraiser run's plan before the owner approves it: run ${awaitingRun.run_id}, plan at ${planPath}, task at ${reviewTaskPath}. Check the plan against the task and recommend approve or changes.`;
-let status = oldCompatibleStatus;
+let status = minimalStatus;
 const staticReplies = {
   'system.health': { ok: true, service: 'funkyoctopus-sidecar', version: 'fixture', uptimeMs: 1000, backends: { pi: 'up', helmraiser: 'up' } },
   'system.upkeep': { disabled: true, status: 'idle', lastRunAt: null, lastResult: null, globalPiVersion: null, embeddedSdkVersion: null, drift: 'unknown', embedded: { installedVersion: null, latestVersion: null, verifiedVersion: null, verificationLevel: 'unknown', status: 'unknown', lastCheckAt: null, lastPromotionAttemptAt: null, lastPromotionResult: null, lastRecoveryAttemptAt: null, lastRecoveryResult: null } },
@@ -293,8 +293,8 @@ try {
 
   // Add an origin-capable awaiting row only for lock evidence; the original
   // status fixture above still proves compatibility with missing optional fields.
-  status = { ...oldCompatibleStatus, awaiting: [awaitingRun], awaiting_count: 1,
-    queue: { ...oldCompatibleStatus.queue, awaiting_approval: 1 } };
+  status = { ...minimalStatus, awaiting: [awaitingRun], awaiting_count: 1,
+    queue: { ...minimalStatus.queue, awaiting_approval: 1 } };
   await (await page.$$(`xpath/.//button[contains(., "Chat")]`))[0].click();
   await openHelmraiser();
   await page.waitForFunction(() => [...document.querySelectorAll('button')].some((node) => node.textContent?.trim() === 'REVIEW IN ITS CHAT'));
@@ -384,7 +384,7 @@ try {
   assert('discussion did not queue a deferred competing switch', navigationCalls().length === beforeDiscussion + 1 && slotFor(fresh)?.session.path === fresh.path);
   assert('explicit discussion succeeds after review releases', slotFor(fresh)?.session.path === fresh.path);
   // Return to the old-status fixture for the unchanged decision/origin flows.
-  status = oldCompatibleStatus;
+  status = minimalStatus;
 
   const decisions = [['Untangle risky', 'risk is too broad', 'unwanted'], ['Refine the Helmraiser', 'discussed elsewhere', 'duplicate'], ['Older pathless', 'legacy row cleanup', 'unusable']];
   for (const [title, reason, dropClass] of decisions) {
@@ -450,7 +450,7 @@ try {
       dropRequests: requests.filter((request) => request.method === 'helmraiser.dropDraft'),
       chatSendRequestsAfterDiscuss: chatSendsAfterDiscuss,
       chatSendRequestsTotal: requests.filter((request) => request.method === 'chat.send').length,
-      oldStatusKeys: Object.keys(oldCompatibleStatus),
+      minimalStatusKeys: Object.keys(minimalStatus),
     },
     assertions,
   };

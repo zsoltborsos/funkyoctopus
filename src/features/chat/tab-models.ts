@@ -36,20 +36,16 @@ export interface TabModel {
 /**
  * Per-tab model and effort, kept browser-side (T2.2) until T2.3 moves slot
  * state to the sidecar. A tab's pick survives a reload; a tab without one
- * starts on the last pick made in a tab of its engine, then on the old single
- * global pick when that suits the engine, then on the sidecar's default. A
- * pick never crosses engines: a conversation never moves between them.
+ * starts on the last pick made in a tab of its engine, then on the sidecar's
+ * default. A pick never crosses engines: a conversation never moves between
+ * them.
  */
 export class TabModels {
   private stored: Stored;
   private version = 0;
   private readonly listeners = new Set<() => void>();
 
-  constructor(
-    private readonly storage: StorageAdapter,
-    /** The pre-tabs global pick (preferences), read as the last fallback. */
-    private readonly legacy: () => TabPick = () => NONE,
-  ) {
+  constructor(private readonly storage: StorageAdapter) {
     const raw = storage.get<Partial<Stored>>(STORAGE_KEY);
     this.stored = { tabs: raw?.tabs ?? {}, last: raw?.last ?? {} };
   }
@@ -90,9 +86,7 @@ export class TabModels {
     const own = Object.hasOwn(this.stored.tabs, chatId) ? this.stored.tabs[chatId] : undefined;
     if (suits(own)) return own;
     const last = kind === null ? undefined : this.stored.last[kind];
-    if (suits(last)) return last;
-    const legacy = this.legacy();
-    return legacy.model !== null && suits(legacy) ? legacy : NONE;
+    return suits(last) ? last : NONE;
   }
 
   private select(chatId: string, kind: EngineKind | null, patch: Partial<TabPick>): void {

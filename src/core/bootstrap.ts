@@ -48,17 +48,8 @@ export function registerServices(c: Container): void {
     CHAT_ATTENTION_NOTIFICATIONS,
     (c) => new ChatAttentionNotifications(c.resolve(PREFERENCES)),
   );
-  c.register(TAB_MODELS, (c) => {
-    const preferences = c.resolve(PREFERENCES);
-    return new TabModels(storage, () => {
-      const { chatModel, chatEffort } = preferences.get();
-      return { model: chatModel, effort: chatEffort };
-    });
-  });
-  c.register(TAB_FOLDERS, (c) => {
-    const preferences = c.resolve(PREFERENCES);
-    return new TabFolders(storage, () => preferences.get().activeProject);
-  });
+  c.register(TAB_MODELS, () => new TabModels(storage));
+  c.register(TAB_FOLDERS, () => new TabFolders(storage));
   // Chat tabs (T2.2): the chat services live in each tab's scope, never in the
   // app's container, so nothing can talk to a chat without naming its tab. The
   // views resolve them from the shown tab's scope (ActiveChatScope).

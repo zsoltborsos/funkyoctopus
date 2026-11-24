@@ -239,7 +239,7 @@ Nothing above is stubbed; every control reaches the sidecar.
 ## Verification baseline (2026-11-24)
 
 - `npm run verify` (`tsc -b` strict + ESLint with `any`/unused as errors +
-  Vitest): 3062 passed, 1 skipped, in 153 files
+  Vitest): 3052 passed, 1 skipped, in 153 files
   (47.0 s Vitest).
   Two Vitest projects: `browser` (`src/`, jsdom) and `node` (`server/`,
   `scripts/`). The expected skip is the `pi-contract.test.ts` case that only
@@ -436,7 +436,3 @@ decisions.
     8787/8788/5174 defaults other dev projects want. The service binds
     loopback because FO has no login; an SSH tunnel to loopback reaches it
     from another machine without widening the bind or the Origin allow-list.
-16. **Helmraiser, formerly Squadron.** FO drives the `helmraiser` CLI and
-    names it Helmraiser everywhere. Legacy names are rejected or ignored, not
-    aliased (`fo squadron`, `SQUADRON_*`, `.squadron/tasks`); a stored
-    `notifySquadron` preference migrates once to `notifyHelmraiser`.

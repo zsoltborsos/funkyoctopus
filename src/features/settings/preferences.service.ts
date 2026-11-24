@@ -47,26 +47,11 @@ export class PreferencesService {
   }
 
   private load(): Preferences {
-    // notifySquadron is the legacy persisted key; migrate it without losing opt-in state.
-    const stored = this.storage.get<Partial<Preferences> & {
-      workspaceRoots?: unknown;
-      notifySquadron?: boolean;
-    }>(STORAGE_KEY);
-    // The workspace-roots preference moved to sidecar config (project roots);
-    // a stored legacy key is dropped so a later update never writes it back.
-    const cleaned = stored ? { ...stored } : undefined;
-    if (cleaned) {
-      delete cleaned.workspaceRoots;
-      if (cleaned.notifyHelmraiser === undefined && cleaned.notifySquadron !== undefined) {
-        cleaned.notifyHelmraiser = cleaned.notifySquadron;
-      }
-      delete cleaned.notifySquadron;
-    }
+    const stored = this.storage.get<Partial<Preferences>>(STORAGE_KEY);
     // Defaults first so a partial or outdated stored shape is filled in, not trusted.
-    const preferences = { ...DEFAULT_PREFERENCES, ...(cleaned ?? {}) };
+    const preferences = { ...DEFAULT_PREFERENCES, ...(stored ?? {}) };
     // A theme that has left the registry falls back rather than styling nothing.
     if (!isThemeId(preferences.theme)) preferences.theme = DEFAULT_PREFERENCES.theme;
-    if (stored && 'notifySquadron' in stored) this.storage.set(STORAGE_KEY, preferences);
     return preferences;
   }
 }

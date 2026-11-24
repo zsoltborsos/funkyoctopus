@@ -82,12 +82,7 @@ async function setup(
   const chatSession = new ChatSession(orchestrator, transport, 'test-tab');
   await chatSession.refresh();
 
-  const storage = new MemoryStorageAdapter();
-  storage.set('funkyoctopus.preferences', {
-    chatModel: { provider: 'selected-provider', id: 'selected-model' },
-    chatEffort: 'high',
-  });
-  const preferences = new PreferencesService(storage);
+  const preferences = new PreferencesService(new MemoryStorageAdapter());
   const status = makeHelmraiserStatus();
   const monitorSnapshot = { status, loading: false, error: null, unavailable: false };
   const monitor = {
@@ -112,14 +107,10 @@ async function setup(
   container.registerInstance(TAB_FOLDER, new TabFolders(new MemoryStorageAdapter()).forTab('main'));
   container.registerInstance(TAB_FOLDERS, new TabFolders(new MemoryStorageAdapter()));
   container.registerInstance(PREFERENCES, preferences);
-  // The shown tab's pick; with none of its own it starts from the old global pick, as bootstrap wires it.
-  container.registerInstance(
-    TAB_MODEL,
-    new TabModels(new MemoryStorageAdapter(), () => ({
-      model: preferences.get().chatModel,
-      effort: preferences.get().chatEffort,
-    })).forTab('main', () => 'pi'),
-  );
+  const tabModel = new TabModels(new MemoryStorageAdapter()).forTab('main', () => 'pi');
+  tabModel.selectModel({ provider: 'selected-provider', id: 'selected-model' });
+  tabModel.selectEffort('high');
+  container.registerInstance(TAB_MODEL, tabModel);
   container.registerInstance(HELMRAISER_MONITOR, monitor as never);
   container.registerInstance(WORKFLOW, workflow as never);
   render(
