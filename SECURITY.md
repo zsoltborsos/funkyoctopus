@@ -36,8 +36,9 @@ points below are where its security lives.
 - **The WebSocket guard.** A browser may connect only from an allowed Origin
   (`http://localhost:14174` and `http://127.0.0.1:14174` by default); `Origin:
   null` and foreign Origins are refused. A connection with no Origin header is
-  allowed; that is how the `fo` CLI connects. As a result, **any process
-  running as you on the machine can drive the sidecar**.
+  allowed; that is how the `fo` CLI connects. As a result, **any program on
+  the machine can drive the sidecar, whichever user runs it**: loopback is not
+  limited to your account, so do not run FunkyOctopus on a shared machine.
 - **Agents run without prompts.** Claude Code tabs run the `claude` binary
   through the Claude Agent SDK in `bypassPermissions` mode; pi tabs run the
   embedded pi runtime. Both can read and write files and run commands as you.
