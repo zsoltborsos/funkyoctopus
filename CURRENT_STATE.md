@@ -290,6 +290,10 @@ Leeboard and Helmraiser
   bare message.
 
 Operations
+- Any local process, under any user account, can drive the sidecar: the
+  WebSocket's Origin guard admits a connection with no Origin header (how
+  `fo` connects; Node's WebSocket sends none), and there is no token
+  (`server/src/transport/server.ts`, `originGuard`; `SECURITY.md`).
 - `npm run deploy` writes the unit's `PATH` and Node from the deploying
   shell, so the service inherits that shell's toolchain.
 - The sidecar takes no lock at boot, so it can start mid-promotion; stopping

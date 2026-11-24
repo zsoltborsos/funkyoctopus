@@ -91,6 +91,10 @@ one commit (T5.6, 2026-11-23). What remains is under Later.
 - "Remember this" from a message or the composer: FO hands the text to the
   session's agent or calls `lb`; FO stores nothing itself (non-goal 7).
 - FO release update check.
+- Local-client authentication: today any local process, from any user, can
+  drive the sidecar (`CURRENT_STATE.md`, Known gaps). Candidates include a
+  per-user token for `fo` and other non-browser clients, or a Unix socket
+  with owner-only permissions.
 - Demo mode and screenshots, in the branded theme (owner deferred UI tweaks
   2026-11-23).
 - GitHub social preview upload (`docs/brand/funkyoctopus-social.png`, the
