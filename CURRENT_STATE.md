@@ -213,8 +213,8 @@ Nothing above is stubbed; every control reaches the sidecar.
 ## Runtime baseline
 
 - Embedded pi **1.6.0**, exact-pinned (promoted with `npm run promote:pi`,
-  2026-11-22). Claude Agent SDK **0.3.331**, exact-pinned, paired with Claude
-  Code CLI 2.1.331.
+  2026-11-22). Claude Agent SDK **0.3.332**, exact-pinned, paired with Claude
+  Code CLI 2.1.332 (live Claude Code runtime test passed 2026-11-25).
 - TypeScript 6.0.3 (typescript-eslint 8.74.0 supports `<6.1.0` only; TypeScript 7 waits for it); Vite 8,
   Vitest 5, ESLint 10.
 - Node 26 or newer (`engines`, enforced by `service:install`).
