@@ -123,7 +123,7 @@ function parseOptions(
   }
   if (command === 'deploy' || command === 'install') {
     if (positional.length > 1) return `${command} accepts at most one ref`;
-    options.ref = positional[0] ?? 'master';
+    options.ref = positional[0] ?? 'main';
   } else if (positional.length > 0) {
     return `${command} does not accept positional arguments`;
   }
@@ -230,7 +230,7 @@ async function install(deps: ServiceDeps, options: Options): Promise<number> {
     .map((line) => resolve(line.slice('worktree '.length)))
     .includes(options.deployDir);
   if (!deployed) {
-    const add = await deps.run('git', ['worktree', 'add', '--detach', options.deployDir, options.ref ?? 'master'], repo);
+    const add = await deps.run('git', ['worktree', 'add', '--detach', options.deployDir, options.ref ?? 'main'], repo);
     if (add.code !== 0) {
       deps.err(add.stderr.trim() || 'service:install: could not create deployed worktree');
       return EXIT_FAILED;
@@ -287,7 +287,7 @@ async function deploy(deps: ServiceDeps, options: Options): Promise<number> {
     return EXIT_FAILED;
   }
   const rollbackHint = (): void => deps.err(`Roll back with: npm run deploy -- ${before}`);
-  const checkout = await deps.run('git', ['checkout', '--detach', options.ref ?? 'master'], options.deployDir);
+  const checkout = await deps.run('git', ['checkout', '--detach', options.ref ?? 'main'], options.deployDir);
   if (checkout.code !== 0) {
     deps.err(checkout.stderr.trim() || 'deploy: checkout failed');
     rollbackHint();

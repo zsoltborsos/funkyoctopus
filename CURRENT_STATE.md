@@ -122,7 +122,7 @@ registration; inbound frames and `fo call` are runtime-validated.
   explicit `--chat` and an interactive terminal (decision 12, limit 2).
 - **Service** (`scripts/service.ts`) — `npm run service:install` /
   `npm run deploy` install a systemd user unit (`funkyoctopus.service`) that
-  runs a detached deployed worktree of `master` (or the ref `service:install`
+  runs a detached deployed worktree of `main` (or the ref `service:install`
   is given), serving the UI and the WebSocket on the service port.
   `service:install` refuses Node older than 26; a missing `pi`, `helmraiser`
   or `lb` CLI is only a warning.

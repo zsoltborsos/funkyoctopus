@@ -214,7 +214,7 @@ describe('install', () => {
     expect(h.errors.join('\n')).toContain('warning: lb');
     expect(h.errors.join('\n')).toContain('warning: pi');
     expect(h.calls).toEqual(expect.arrayContaining([
-      `/repo> git worktree add --detach ${deployDir} master`,
+      `/repo> git worktree add --detach ${deployDir} main`,
       `${deployDir}> npm ci`,
       `${deployDir}> npm run build`,
       '/repo> systemctl --user daemon-reload',
@@ -226,7 +226,7 @@ describe('install', () => {
     expect(h.files.get(unitPath)).toContain('Environment="PATH=/tools:/usr/bin"');
   });
 
-  it('deploys a given ref instead of master, and takes at most one', async () => {
+  it('deploys a given ref instead of main, and takes at most one', async () => {
     const h = harness(['install', 'main']);
     expect(await serviceMain(h.deps)).toBe(0);
     expect(h.calls).toContain(`/repo> git worktree add --detach ${deployDir} main`);

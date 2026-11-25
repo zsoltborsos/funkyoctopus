@@ -137,9 +137,9 @@ widen the allow-list to a wildcard.
 **Always-on service** (a systemd user service on `http://127.0.0.1:14787`):
 
 ```bash
-npm run service:install        # once; deploys your local master
+npm run service:install        # once; deploys your local main
 npm run service:install -- <ref>  # or another branch or commit
-npm run deploy                 # later: publish the current master
+npm run deploy                 # later: publish the current main
 npm run deploy -- <ref>        # or a specific commit; also the rollback
 journalctl --user -u funkyoctopus -f
 npm run service:uninstall      # add -- --remove-copy to delete the deployed copy too
@@ -147,12 +147,12 @@ npm run service:uninstall      # add -- --remove-copy to delete the deployed cop
 
 `service:install` checks Node 26+, `git` and a reachable `systemctl --user`
 (a missing `pi`, `helmraiser` or `lb` is only a warning). It creates a
-detached git worktree of your local `master`, or of the ref you pass, at
+detached git worktree of your local `main`, or of the ref you pass, at
 `~/.local/share/funkyoctopus/app`, runs `npm ci` and `npm run build` there,
 writes `~/.config/systemd/user/funkyoctopus.service` and enables and starts
 it. The service runs that copy, not your working tree, so development keeps
 running separately on 14174 and 14788. `npm run deploy` checks out a ref (default
-`master`) in the deployed copy, reinstalls if the lockfile changed, rebuilds
+`main`) in the deployed copy, reinstalls if the lockfile changed, rebuilds
 and restarts the service; it needs `service:install` to have been run first
 and refuses if the deployed copy has local changes. `--deploy-dir <absolute
 path>` or `FUNKYOCTOPUS_DEPLOY_DIR` picks another location. The unit records
