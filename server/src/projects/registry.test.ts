@@ -82,8 +82,8 @@ describe('knownProjects', () => {
     await mkdir(nested);
     await mkdir(other);
     const run = runner({ stdout: JSON.stringify([
-      { name: 'helmraiser', aliases: ['old-name'], paths: [root, nested], remotes: [] },
-      { name: 'demo-api', aliases: [], paths: [join(scratch, 'gone'), other], remotes: [] },
+      { name: 'helmraiser', paths: [root, nested], remotes: [] },
+      { name: 'demo-api', paths: [join(scratch, 'gone'), other], remotes: [] },
       { name: 'missing', paths: [join(scratch, 'missing')] },
     ]) });
     expect(await knownProjects(run)).toEqual([
@@ -169,7 +169,7 @@ describe('projectPathIndex', () => {
     await mkdir(nested);
     await writeFile(file, 'x');
     const run = runner({ stdout: JSON.stringify([
-      { name: 'helmraiser', aliases: [], paths: [old, root, nested, old, older, file], remotes: [] },
+      { name: 'helmraiser', paths: [old, root, nested, old, older, file], remotes: [] },
       { name: 'missing', paths: [join(scratch, 'gone-project')] },
     ]) });
     const index = await projectPathIndex(run);

@@ -84,7 +84,7 @@ let scouted = [
   },
   {
     project, id: 'legacy-pathless', title: 'Older pathless draft', size: '?', source: 'scout', age: 2,
-    intake_status: 'legacy', intake_error: null, proposal: null, preflight: null,
+    intake_status: 'not_run', intake_error: null, proposal: null, preflight: null,
   },
 ];
 const expectedDiscuss = `Help me refine this Helmraiser draft.\n\nProject: ${project}\nTitle: Refine the Helmraiser cockpit\nTask file: ${paths.discuss}\n\nRead the task file, help refine it, and queue it only when I am happy with it.`;

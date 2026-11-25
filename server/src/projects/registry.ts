@@ -10,7 +10,7 @@ export interface ProjectPaths {
   oldPaths: string[];
 }
 
-/** What `lb project list --json` returns; aliases and remotes are not used here. */
+/** What `lb project list --json` returns; remotes are not used here. */
 interface LbProjectEntry {
   name: string;
   paths: string[];
